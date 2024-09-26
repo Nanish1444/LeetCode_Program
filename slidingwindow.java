@@ -8,28 +8,27 @@ class Solution {
 
             pq = new PriorityQueue<>(Comparator.reverseOrder());
 
-            MOVE(pq,i,k,nums);
+            pq.add(nums[i]);
+
+            for(int j=i+1;j<i+k && (i+k)<=nums.length;j++){
+
+                    pq.add(nums[j]);
+            }
 
             if(!pq.isEmpty() && pq.size()==k){
 
                 arr.add(pq.poll());
-
             }
-
         }
 
         int[] re = new int[arr.size()];
-        for(int j=0;j<arr.size();j++){
-            re[j]=arr.get(j);
+
+        for(int i=0;i<arr.size();i++){
+
+            re[i]=arr.get(i);
+
         }
+
         return re;
     }
-
-    public static void MOVE(PriorityQueue<Integer> pq,int start,int end,int[] nums){
-        for(;start<end;start++){
-            pq.add(nums[start]);
-        }
-        return ;
-    }
-
 }
