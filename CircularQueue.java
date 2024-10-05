@@ -2,23 +2,26 @@ class MyCircularQueue {
    private Queue<Integer> queue;
    private int last;
    private int size;
+   final int fixed;
     public MyCircularQueue(int k) {
-       queue=new ArrayBlockingQueue(k);
+       queue=new LinkedList();
+       fixed=k;
        size=k;
     }
     
     public boolean enQueue(int value) {
-        try{
+        if(size>0){
             queue.add(value);
             last=value;
+            size--;
             return true;
-        }catch(IllegalStateException e){
-            return false;
         }
+        return false;
     }
     
     public boolean deQueue() {
         if(queue.isEmpty())return false;
+        size++;
         queue.poll();
         return true;
     }
@@ -38,7 +41,7 @@ class MyCircularQueue {
     }
     
     public boolean isFull() {
-        return queue.size()==size;
+        return queue.size()==fixed;
     }
 }
 
