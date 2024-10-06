@@ -1,6 +1,5 @@
 import java.util.*;
 class Basket{
-	private int quantity;
 	private  int index;
 	private String[] str;
 	Basket nextBasket;
