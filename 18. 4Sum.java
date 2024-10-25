@@ -7,6 +7,9 @@ class Solution {
             if(i>=0 && nums[i]==nums[i-1]){
                 continue;
             }
+            if(i>=0 && nums[i]>target){
+                break;
+            }
             for(int j=i+1;j<nums.length;j++){
                 int k=j+1;
                 int l=nums.length-1;
