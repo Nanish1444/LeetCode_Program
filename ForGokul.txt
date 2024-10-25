@@ -1,0 +1,33 @@
+Input
+sentence =
+"tc7fr$$roqdozd0 $1391"
+discount =
+69
+Output
+"tc7fr$$roqdozd0 $431.21"
+Expected
+"tc7fr$$roqdozd0 $431.21"
+
+
+
+Input
+sentence =
+"$7383692 5q $5870426"
+discount =
+64
+Output
+"$2658129.12 5q $2113353.36"
+Expected
+"$2658129.12 5q $2113353.36"
+
+
+
+Input
+sentence =
+"706hzu76jjh7yufr5x9ot60v149k5 $7651913186 pw2o $6"
+discount =
+28
+Output
+"706hzu76jjh7yufr5x9ot60v149k5 $5.5093775E9 pw2o $4.32"
+Expected
+"706hzu76jjh7yufr5x9ot60v149k5 $5509377493.92 pw2o $4.32"
