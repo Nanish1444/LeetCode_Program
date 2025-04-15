@@ -1,0 +1,82 @@
+class Solution {
+    public List<String> fullJustify(String[] words, int maxWidth) {
+        ArrayList<String> res = new ArrayList<>();
+        for(int i=0;i<words.length;){
+            int len=0;
+            StringBuilder temp = new StringBuilder();
+            // System.out.println("Pass 1");
+            int wordCount=0;
+            boolean check = true;
+            while(i<words.length && len<maxWidth ){
+                len+=words[i].length()+1;
+                if(len<=maxWidth){
+                    temp.append(words[i]+" ");
+                    wordCount++;
+                }
+                else if(len-1==maxWidth){
+                    temp.append(words[i]);
+                    check=false;
+                    wordCount++;
+                    i++;
+                    break;
+                }
+                else{
+                    check=false;
+                    if(wordCount>1){
+                        temp.deleteCharAt(temp.length()-1);
+                    }
+                    
+                    // System.out.println(temp+"|");
+                    break;
+                }
+                i++;
+            }
+            if(check && wordCount>1){
+                temp.deleteCharAt(temp.length()-1);
+                    
+            }
+            // System.out.println("Pass 2");
+            if(i==words.length || wordCount<2){
+                // System.out.println("Yes"+temp);
+                while(temp.length()<maxWidth){
+                temp.append(" ");
+                }
+            }
+            else{
+                while(temp.length()<maxWidth){
+                    int space=maxWidth-temp.length();
+                    int index=0;
+                    boolean once=true;
+                    
+                    while(space!=0 && index<temp.length()){
+                        if(once==true && temp.charAt(index)==' '){
+                            // System.out.println("Before :"+temp);
+                            temp.insert(index,' ');
+                            // System.out.println("After :"+temp);
+                            space--;
+                            once=false;
+                            // System.out.println("exe 1");
+
+                        }
+                        else if(once==false && Character.isLetter(temp.charAt(index))){
+                            once=true;
+                            // System.out.println("exe 2");
+                        }
+
+                        if(temp.length()==maxWidth){
+                            break;
+                        }
+                        index++;
+                    }
+                    
+                }
+            }
+            
+            
+            // System.out.println("Pass 3");
+            res.add(temp.toString());
+            // System.out.println(res);
+        }
+        return res;
+    }
+}
